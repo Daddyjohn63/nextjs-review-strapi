@@ -14,7 +14,7 @@ const url =
     { encodeValuesOnly: true }
   );
 
-console.log('url:', url);
+//console.log('url:', url);
 
 const response = await fetch(url);
 const body = await response.json();
