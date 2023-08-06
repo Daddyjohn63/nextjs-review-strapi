@@ -10,7 +10,7 @@ import { getReviews } from '@/lib/reviews';
 export default async function HomePage() {
   // const review = await getFeaturedReview();
   // console.log('[HomePage] rendering');
-  const reviews = await getReviews(3);
+  const { reviews } = await getReviews(3);
   return (
     <>
       <Heading>Indie Gamer</Heading>
