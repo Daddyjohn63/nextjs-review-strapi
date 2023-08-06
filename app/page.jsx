@@ -4,6 +4,9 @@ import Heading from '@/components/Heading';
 import { getFeaturedReview } from '@/lib/reviews';
 import { getReviews } from '@/lib/reviews';
 
+// export const dynamic = 'force-dynamic';
+// export const revalidate = 30; //seconds , should be at least 5 minutes in production.
+
 export default async function HomePage() {
   // const review = await getFeaturedReview();
   // console.log('[HomePage] rendering');
