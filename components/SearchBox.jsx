@@ -3,7 +3,6 @@ import { Combobox } from '@headlessui/react';
 import { useIsClient } from '@/lib/hooks';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { searchReviews } from '@/lib/reviews';
 
 // const reviews = [
 //   { slug: 'celeste-2', title: 'Celeste-2 update 2' },
@@ -22,7 +21,10 @@ export default function SearchBox() {
     //fecth the reviews
     if (query.length > 1) {
       (async () => {
-        const reviews = await searchReviews(query);
+        const response = await fetch(
+          '/api/search?query=' + encodeURIComponent(query)
+        );
+        const reviews = await response.json();
         setReviews(reviews);
       })();
     } else {
@@ -57,7 +59,7 @@ export default function SearchBox() {
                 <span
                   className={`block px-2 truncate w-full ${
                     active ? 'bg-orange-100' : ''
-                  }`}
+                  } cursor-pointer`}
                 >
                   {review.title}
                 </span>
